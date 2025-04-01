@@ -1,15 +1,89 @@
+welcomeSign = """
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                   ██                                               
+                                                    █                                               
+                                                   ██                                               
+                                                  ███                                               
+                                                  ██                                                
+                                                   █                                                
+                                                               █████                                
+                                       █████████████████████████   ███                              
+                                       █ ██████████████████████     ███                             
+                                       █ ██████████████████████      ██                             
+                                       ████████████████████████     ██                              
+                                        █ ███████████████████████████                               
+                                         █ ███████████████████                                      
+                                          ██████████████████                                        
+                                            ██████████████                                          
+                                      ██████████████████████████                                    
+                                                                                                    
+"""
+
+
 queue = []
 
-print("Hello! Welcome to the coffee shop. How can I help you?")
-print("Options: ")
-print("1. Order")
-print("2. Oredr going out")
-print("3. View queue/waitlist")
-print("4. Exit")
-userInput = input()
+while True:
+    print("\nHello! Welcome to the coffee shop. How can I help you?")
+    print(welcomeSign)
+    print("Options: ")
+    print("1. Order")
+    print("2. Order going out")
+    print("3. View queue/waitlist")
+    print("4. Exit")
+    userInput = input()
 
-if userInput == '1':
-    customer = input("What is your name?: ")
+    if userInput == '1':
+        customer = input("What is your name?: ")
+        print("1. Black Coffee")
+        print("2. Cofee with Cream and Sugar")
+        print("3. Black Coffee with a English Muffin")
+        print("4. Coffee with a English Muffin")
+        print("5. Expresso Shot with a English Muffin")
+        print("6. Cappuccino")
+        print("7. Expresso Shot")
+        order = input("What would you like to order?: ")
+        if order == '1':
+            print(f"Thank you, {customer}. Your order for Black Coffee has been placed.")
+        if == '2':
+            print(f"Thank you, {customer}. Your order for Coffee wiht Cream and Sugar has been placed.")
+        if == '3':
+            print(f"Thank you, {customer}. Your order for Black Coffee wiht a English Muffin has been placed.")
+        if == '4':
+            print(f"Thank you, {customer}. Your order for Cofee wiht a English Muffin has been placed.")
+        if == '5':
+            print(f"Thank you, {customer}. Your order for Expresso Shot wiht a English Muffin has been placed.")
+        if == '6':
+            print(f"Thank you, {customer}. Your order for Cappuccino has been placed.")
+        if == '7':
+            print(f"Thank you, {customer}. Your order for an Expresso shot has been placed.")
+        else:
+            print("Invalid input please try again...")
+        queue.append((customer, order))
+        
+        
+    elif userInput == '2':
+        if queue:
+            customer, order = queue.pop(0)
+            print(f"Hello, {customer}, your {order} is ready.")
+        else:
+            print("No orders are ready to go out.")
+            
+    elif userInput == '3':
+        if queue:
+            print("Current queue/waitlist:")
+            for i, (customer, order) in enumerate(queue):
+                print(f"{i+1}. {customer} - {order}")
+        else:
+            print("The queue is currently empty.")
+            
+    elif userInput == '4':
+        print("Thank you for visiting the coffee shop. Goodbye!")
+        break  # Exit the loop when the user selects option 4
     
-elif userInput == '2':
-    print(f"Hello, {customer} your {order} is ready")
+    else:
+        print("Invalid option. Please select a valid option.")
