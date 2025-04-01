@@ -49,20 +49,19 @@ while True:
         order = input("What would you like to order?: ")
         if order == '1':
             print(f"Thank you, {customer}. Your order for Black Coffee has been placed.")
-        if == '2':
+        if order == '2':
             print(f"Thank you, {customer}. Your order for Coffee wiht Cream and Sugar has been placed.")
-        if == '3':
+        if order == '3':
             print(f"Thank you, {customer}. Your order for Black Coffee wiht a English Muffin has been placed.")
-        if == '4':
+        if order == '4':
             print(f"Thank you, {customer}. Your order for Cofee wiht a English Muffin has been placed.")
-        if == '5':
+        if order == '5':
             print(f"Thank you, {customer}. Your order for Expresso Shot wiht a English Muffin has been placed.")
-        if == '6':
+        if order == '6':
             print(f"Thank you, {customer}. Your order for Cappuccino has been placed.")
-        if == '7':
+        if order == '7':
             print(f"Thank you, {customer}. Your order for an Expresso shot has been placed.")
-        else:
-            print("Invalid input please try again...")
+       
         queue.append((customer, order))
         
         
