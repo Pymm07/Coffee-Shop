@@ -1,17 +1,17 @@
 welcomeSign = """
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
+                                                                                                  
                                                    ██                                               
                                                     █                                               
                                                    ██                                               
                                                   ███                                               
-                                                  ██                                                
-                                                   █                                                
-                                                               █████                                
+                                                  ██                                                 
+                                                   █                                                 
+                                                               █████                                 
                                        █████████████████████████   ███                              
                                        █ ██████████████████████     ███                             
                                        █ ██████████████████████      ██                             
@@ -21,15 +21,13 @@ welcomeSign = """
                                           ██████████████████                                        
                                             ██████████████                                          
                                       ██████████████████████████                                    
-                                                                                                    
-"""
-
+                                                                                                  
+""" 
 
 queue = []
-
+print(welcomeSign)
 while True:
     print("\nHello! Welcome to the coffee shop. How can I help you?")
-    print(welcomeSign)
     print("Options: ")
     print("1. Order")
     print("2. Order going out")
@@ -40,35 +38,43 @@ while True:
     if userInput == '1':
         customer = input("What is your name?: ")
         print("1. Black Coffee")
-        print("2. Cofee with Cream and Sugar")
-        print("3. Black Coffee with a English Muffin")
-        print("4. Coffee with a English Muffin")
-        print("5. Expresso Shot with a English Muffin")
+        print("2. Coffee with Cream and Sugar")
+        print("3. Black Coffee with an English Muffin")
+        print("4. Coffee with an English Muffin")
+        print("5. Espresso Shot with an English Muffin")
         print("6. Cappuccino")
-        print("7. Expresso Shot")
-        order = input("What would you like to order?: ")
+        print("7. Espresso Shot")
+        
+        order_valid = False
+        while not order_valid:
+            order = input("What would you like to order? (Enter number 1-7): ")
+            if order in ['1', '2', '3', '4', '5', '6', '7']:
+                order_valid = True
+            else:
+                print("Invalid choice. Please choose a valid option (1-7).")
+        
+        # Mapping the orders to their descriptions
         if order == '1':
             print(f"Thank you, {customer}. Your order for Black Coffee has been placed.")
-        if order == '2':
-            print(f"Thank you, {customer}. Your order for Coffee wiht Cream and Sugar has been placed.")
-        if order == '3':
-            print(f"Thank you, {customer}. Your order for Black Coffee wiht a English Muffin has been placed.")
-        if order == '4':
-            print(f"Thank you, {customer}. Your order for Cofee wiht a English Muffin has been placed.")
-        if order == '5':
-            print(f"Thank you, {customer}. Your order for Expresso Shot wiht a English Muffin has been placed.")
-        if order == '6':
+        elif order == '2':
+            print(f"Thank you, {customer}. Your order for Coffee with Cream and Sugar has been placed.")
+        elif order == '3':
+            print(f"Thank you, {customer}. Your order for Black Coffee with an English Muffin has been placed.")
+        elif order == '4':
+            print(f"Thank you, {customer}. Your order for Coffee with an English Muffin has been placed.")
+        elif order == '5':
+            print(f"Thank you, {customer}. Your order for Espresso Shot with an English Muffin has been placed.")
+        elif order == '6':
             print(f"Thank you, {customer}. Your order for Cappuccino has been placed.")
-        if order == '7':
-            print(f"Thank you, {customer}. Your order for an Expresso shot has been placed.")
-       
-        queue.append((customer, order))
+        elif order == '7':
+            print(f"Thank you, {customer}. Your order for an Espresso shot has been placed.")
         
+        queue.append((customer, order))
         
     elif userInput == '2':
         if queue:
             customer, order = queue.pop(0)
-            print(f"Hello, {customer}, your {order} is ready.")
+            print(f"Hello, {customer}, your order is ready.")
         else:
             print("No orders are ready to go out.")
             
@@ -76,7 +82,21 @@ while True:
         if queue:
             print("Current queue/waitlist:")
             for i, (customer, order) in enumerate(queue):
-                print(f"{i+1}. {customer} - {order}")
+                if order == '1':
+                    print(f"{i+1}. {customer} - Black cofee")
+                if order == '2':
+                    print(f"{i+1}. {customer} - Coffee w/ Cream & Sugar")
+                if order == '3':
+                    print(f"{i+1}. {customer} - Black Coffee w/ English Muffin")
+                if order == '4':
+                    print(f"{i+1}. {customer} - Coffee w/ English Muffin")
+                if order == '5':
+                    print(f"{i+1}. {customer} - Expresso Shot w/ English Muffin")
+                if order == '6':
+                    print(f"{i+1}. {customer} - Cappuccino")
+                if order == '7':
+                    print(f"{i+1}. {customer} - Expresso Shot")
+
         else:
             print("The queue is currently empty.")
             
