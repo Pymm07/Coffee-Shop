@@ -1,3 +1,4 @@
+#creating ascii for looks
 welcomeSign = """
                                                                                                   
                                                                                                   
@@ -23,10 +24,13 @@ welcomeSign = """
                                       ██████████████████████████                                    
                                                                                                   
 """ 
-
+# Inizaling Queue
 queue = []
+#displaying welcome sign
 print(welcomeSign)
+# while loop until user exits
 while True:
+    # showing the menu for user 
     print("\nHello! Welcome to the coffee shop. How can I help you?")
     print("Options: ")
     print("1. Order")
@@ -35,6 +39,7 @@ while True:
     print("4. Exit")
     userInput = input()
 
+# if statements for what user input is
     if userInput == '1':
         customer = input("What is your name?: ")
         print("1. Black Coffee")
@@ -45,6 +50,7 @@ while True:
         print("6. Cappuccino")
         print("7. Espresso Shot")
         
+        # Making a valid for user input so no mistakes
         order_valid = False
         while not order_valid:
             order = input("What would you like to order? (Enter number 1-7): ")
@@ -73,7 +79,7 @@ while True:
         
     elif userInput == '2':
         if queue:
-            customer, order = queue.pop(0)
+            customer, order = queue.pop(0)   # So user can take people out of queue "serving" them
             print(f"Hello, {customer}, your order is ready.")
         else:
             print("No orders are ready to go out.")
@@ -81,7 +87,7 @@ while True:
     elif userInput == '3':
         if queue:
             print("Current queue/waitlist:")
-            for i, (customer, order) in enumerate(queue):
+            for i, (customer, order) in enumerate(queue): # to display as a numbered list
                 if order == '1':
                     print(f"{i+1}. {customer} - Black cofee")
                 if order == '2':
@@ -89,7 +95,7 @@ while True:
                 if order == '3':
                     print(f"{i+1}. {customer} - Black Coffee w/ English Muffin")
                 if order == '4':
-                    print(f"{i+1}. {customer} - Coffee w/ English Muffin")
+                    print(f"{i+1}. {customer} - Coffee w/ English Muffin")    # if statements depending on what the user orders
                 if order == '5':
                     print(f"{i+1}. {customer} - Expresso Shot w/ English Muffin")
                 if order == '6':
@@ -98,10 +104,10 @@ while True:
                     print(f"{i+1}. {customer} - Expresso Shot")
 
         else:
-            print("The queue is currently empty.")
+            print("The queue is currently empty.") # for when user peeks in queue and it is empty
             
     elif userInput == '4':
-        print("Thank you for visiting the coffee shop. Goodbye!")
+        print("Thank you for visiting the coffee shop. Goodbye!") 
         break  # Exit the loop when the user selects option 4
     
     else:
